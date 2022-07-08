@@ -22,7 +22,7 @@ function! s:opsort(motion)
 		let regex = '/\%>' . (left - 1) . 'v.*\%<' . (right + 2) . 'v/'
 		exec "'<,'>sort" regex "r"
 	else
-		echoe "Unknown motion " . a:motion . ", please report this to the maintainers"
+		echoe "Unknown motion " . a:motion . ", please report this to the maintainer(s)"
 	endif
 endfunction
 

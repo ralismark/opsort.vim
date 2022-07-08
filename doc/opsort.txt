@@ -1,38 +1,62 @@
 *opsort.txt*  Custom operator that sorts lines
 
-ABOUT                                                                 *opsort*
-
 Author:         ralismark https://ralismark.xyz
 License:        MIT
 Homepage:       https://github.com/ralismark/opsort.vim
 
 ==============================================================================
-MAPPINGS                                                     *opsort-mappings*
+ABOUT                                                                   *opsort*
 
-gs{motion}      or                              *opsort-gs* *<Plug>Opsort*
+This plugin provides one thing: an operator that sorts the lines it is applied
+to.
+
+https://github.com/tpope/vim-repeat is required for full |.| (i.e.
+|single-repeat|) support, but this plugin will still work without it.
+
+==============================================================================
+MAPPINGS                                                       *opsort-mappings*
+
+gss     or                            *opsort-gss* *opsort-gsgs* *<Plug>OpsortCount*
+gsgs    or
+<Plug>OpsortCount       Sort [count] lines |linewise|. This does nothing (i.e.
+                        sorting a single line) if count no count is provided.
+
+gs{motion}      or                                      *opsort-gs* *<Plug>Opsort*
 <Plug>Opsort{motion}    Sort the lines that {motion} moves over.
 
-{Visual}gs      or                              *opsort-v_gs* *v_<Plug>Opsort*
+{Visual}gs      or                                  *opsort-v_gs* *v_<Plug>Opsort*
 {Visual}<Plug>Opsort    In Visual line mode, sort the highlighted lines.
                         In Visual block mode, sort the lines that the block
                         covers, ordering them by the highlighted columns.
                         In (regular) Visual mode, does nothing.
 
-gss     or                      *opsort-gss* *opsort-gsgs* *<Plug>OpsortCount*
-gsgs    or
-<Plug>OpsortCount       Sort [count] lines |linewise|. This does nothing (i.e.
-                        sorting a single line) if count no count is provided.
+                        (for {Visual} see |Visual-mode|).
+
+As an example of the Visual block behaviour, if the region bounded by > < in
+the below text is selected with Visual block mode,
+
+        Apple  >10<
+        Orange > 3<
+        Banana >40<
+
+Pressing |gs| will sort by the numbers instead of by the fruit names, changing
+it to
+
+        Orange > 3<
+        Apple  >10<
+        Banana >40<
+
 
 ==============================================================================
-CONFIGURATION                                                  *opsort-config*
+CONFIGURATION                                                    *opsort-config*
 
-The "gs" mappings can be disabled with:                 *g:opsort_no_mappings*
+The "gs" mappings can be disabled with:                   *g:opsort_no_mappings*
 >
-    let g:sort_op_no_mappings = 1
+    let g:opsort_no_mappings = 1
 <
 
 ==============================================================================
-CHANGELOG                                                   *opsort-changelog*
+CHANGELOG                                                     *opsort-changelog*
 
 2022 Jul 09
 - Initial version

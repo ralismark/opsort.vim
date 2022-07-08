@@ -2,6 +2,11 @@
 
 This plugin provides one thing: an operator that sorts the lines it is applied to.
 
+# Requirements
+
+- vim *or* neovim
+- [tpope/vim-repeat](https://github.com/tpope/vim-repeat/) (optional)
+
 # Summary
 
 By default, `gs` is mapped to sort.
