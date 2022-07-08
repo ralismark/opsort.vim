@@ -1,0 +1,42 @@
+*opsort.txt*  Custom operator that sorts lines
+
+ABOUT                                                                 *opsort*
+
+Version:        v1.0.0
+Author:         ralismark https://ralismark.xyz
+License:        MIT
+Homepage:       https://github.com/ralismark/opsort.vim
+
+==============================================================================
+MAPPINGS                                                     *opsort-mappings*
+
+gs{motion}      or                              *opsort-gs* *<Plug>Opsort*
+<Plug>Opsort{motion}    Sort the lines that {motion} moves over.
+
+{Visual}gs      or                              *opsort-v_gs* *v_<Plug>Opsort*
+{Visual}<Plug>Opsort    In Visual line mode, sort the highlighted lines.
+                        In Visual block mode, sort the lines that the block
+                        covers, ordering them by the highlighted columns.
+                        In (regular) Visual mode, does nothing.
+
+gss     or                      *opsort-gss* *opsort-gsgs* *<Plug>OpsortCount*
+gsgs    or
+<Plug>OpsortCount       Sort [count] lines |linewise|. This does nothing (i.e.
+                        sorting a single line) if count no count is provided.
+
+==============================================================================
+CONFIGURATION                                                  *opsort-config*
+
+The "gs" mappings can be disabled with:                 *g:opsort_no_mappings*
+>
+    let g:sort_op_no_mappings = 1
+<
+
+==============================================================================
+CHANGELOG                                                   *opsort-changelog*
+
+v1.0.0: 2022 Jul 09
+- Initial version
+
+==============================================================================
+ vim:tw=78:ts=8:et:ft=help:norl:
