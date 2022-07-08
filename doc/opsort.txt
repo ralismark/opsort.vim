@@ -2,7 +2,7 @@
 
 ABOUT                                                                 *opsort*
 
-Version:        v1.0.0
+Version:        v1.0.1
 Author:         ralismark https://ralismark.xyz
 License:        MIT
 Homepage:       https://github.com/ralismark/opsort.vim
@@ -34,6 +34,10 @@ The "gs" mappings can be disabled with:                 *g:opsort_no_mappings*
 
 ==============================================================================
 CHANGELOG                                                   *opsort-changelog*
+
+v1.0.1: 2022 Jul 09
+- Fixed OpsortLines
+- Added regular Visual mode and char motion support
 
 v1.0.0: 2022 Jul 09
 - Initial version
