@@ -4,23 +4,25 @@ endif
 let g:loaded_opsort = 1
 
 function! s:opsort(motion)
+	let flags = exists("g:opsort_flags") ? g:opsort_flags : ""
+
 	if type(a:motion) == v:t_number
 		let n = min([a:motion - 1, line("$") - line(".")])
-		exec ".,.+" . n . "sort"
+		exec ".,.+" . n . "sort" flags
 	elseif a:motion ==# "line" || a:motion ==# "char"
-		'[,']sort
+		exec "'[,']sort" flags
 	elseif a:motion ==# "V" || a:motion ==# "v"
 		exec "normal! \<c-\>\<c-n>"
-		'<,'>sort
+		exec "'<,'>sort" flags
 	elseif a:motion ==# "block"
 		let [left, right] = sort([virtcol("'["), virtcol("']")], "n")
 		let regex = '/\%>' . (left - 1) . 'v.*\%<' . (right + 2) . 'v/'
-		exec "'[,']sort" regex "r"
+		exec "'[,']sort" regex "r" . flags
 	elseif a:motion ==# "\<c-v>"
 		exec "normal! \<c-\>\<c-n>"
 		let [left, right] = sort([virtcol("'<"), virtcol("'>")], "n")
 		let regex = '/\%>' . (left - 1) . 'v.*\%<' . (right + 2) . 'v/'
-		exec "'<,'>sort" regex "r"
+		exec "'<,'>sort" regex "r" . flags
 	else
 		echoe "Unknown motion " . a:motion . ", please report this to the maintainer(s)"
 	endif

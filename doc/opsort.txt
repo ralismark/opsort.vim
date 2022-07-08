@@ -55,8 +55,21 @@ The "gs" mappings can be disabled with:                   *g:opsort_no_mappings*
     let g:opsort_no_mappings = 1
 <
 
+To specify how sorting is done:                                 *g:opsort_flags*
+>
+    " Ignore case, and delete duplicate lines
+    let g:opsort_flags = "iu"
+<
+See |:sort| for what flags are available.
+
+Note that when using the [u] flag with Visual-block, only entire duplicate
+lines are deleted, not lines where the highlighted parts are the same.
+
 ==============================================================================
 CHANGELOG                                                     *opsort-changelog*
+
+2022 Jul 10
+- Add support for |g:opsort_flags|
 
 2022 Jul 09
 - Initial version
