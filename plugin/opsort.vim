@@ -5,8 +5,8 @@ let g:loaded_opsort = 1
 
 function! s:opsort(motion)
 	if type(a:motion) == v:t_number
-		let count = min([a:motion - 1, line("$") - line(".")])
-		exec ".,.+" . count . "sort"
+		let n = min([a:motion - 1, line("$") - line(".")])
+		exec ".,.+" . n . "sort"
 	elseif a:motion ==# "line" || a:motion ==# "char"
 		'[,']sort
 	elseif a:motion ==# "V" || a:motion ==# "v"
