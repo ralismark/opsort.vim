@@ -14,7 +14,7 @@ By default, `gs` is mapped to sort.
 When applied linewise (e.g. Visual-line mode, motions, and text objects), it sorts the lines lexicographically.
 For example:
 
-- `gsip` sorts the current line (like `dip`).
+- `gsip` sorts the current paragraph (like `dip`).
 - `10gss` and `10gsgs` both sort 10 lines (like `10dd`).
 
 With Visual-block mode, the selected lines are sorted according to the selected columns.
